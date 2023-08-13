@@ -1,49 +1,50 @@
 <template>
   <div id="app">
-    <p> Number: {{ number }} <!-- ${number}--> </p>
+    <p>
+      Number: {{ number }}
+      <!-- ${number}-->
+    </p>
     <button @click="decrease">decrease</button>
-    <button @dblclick="reset">reset</button>
-    <button @click="increase">increase</button><br>
-    <label> Note: Double Click for Reset</label> <br>
-    <br>
+    <button @click="reset">reset</button>
+    <button @click="increase">increase</button><br />
+    <label> Note: Double Click for Reset</label> <br />
+    <br />
     <label> Input your name</label>
-    <input type="text" @keydown.enter="showinput" v-model="name"> <br>
-    <button @click="removetext"> Remove Text </button>
+    <input type="text" @keydown.enter="showinput" v-model="name" /> <br />
+    <button @click="removetext">Remove Text</button>
     <p>Hello, {{ showName }}</p>
   </div>
 </template>
 
 <script>
-  export default {
-    components: {
-      
+export default {
+  components: {},
+  data() {
+    return {
+      number: 0,
+      name: "",
+      showName: "",
+    };
+  },
+  methods: {
+    decrease() {
+      return (this.number -= 1);
     },
-    data() {
-      return {
-         number: 0,
-         name: '',
-         showName: ''
-      }
+    reset() {
+      this.number = 0;
     },
-    methods: {
-      decrease() {
-        return this.number -= 1
-      },
-      reset() {
-        this.number = 0
-      },
-      increase() {
-        return this.number += 1
-      },
-      showinput() {
-        this.showName = this.name
-      },
-      removetext() {
-        this.showName = '';
-        this.name = ''
-      }
-    }
-  }
+    increase() {
+      return (this.number += 1);
+    },
+    showinput() {
+      this.showName = this.name;
+    },
+    removetext() {
+      this.showName = "";
+      this.name = "";
+    },
+  },
+};
 </script>
 
 <style>
